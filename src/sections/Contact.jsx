@@ -6,8 +6,8 @@ import './Contact.css';
 const contactLinks = [
   { icon: FaEnvelope, label: 'logfrozeofficial@gmail.com', href: 'mailto:logfrozeofficial@gmail.com', color: '#58a6ff' },
   { icon: FaGithub, label: 'logfrozeofficial', href: 'https://github.com/logfrozeofficial', color: '#f0f6fc' },
-  { icon: FaLinkedin, label: 'LinkedIn', href: '#', color: '#0a66c2' },
-  { icon: FaWhatsapp, label: '+92 329 4102524', href: 'https://wa.me/923294102524', color: '#25d366' },
+  { icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/muhammad-umar-8149103a1', color: '#0a66c2' },
+  { icon: FaWhatsapp, label: 'WhatsApp', href: '#', color: '#25d366' },
 ];
 
 export default function Contact() {
