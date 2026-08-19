@@ -2,6 +2,19 @@ export const projectCategories = ['All', 'Websites', 'Apps', 'Business', 'Portfo
 
 export const projects = [
   {
+    id: 100,
+    name: 'Log Froze Marketplace',
+    description: 'A comprehensive food marketplace application connecting users with local restaurants.',
+    tech: ['React Native', 'Firebase', 'Laravel'],
+    category: 'Apps',
+    github: '#',
+    live: '#',
+    image: '/projects/top_Preview.png',
+    status: 'coming-soon',
+    tag: 'My biggest project this far',
+    featured: true,
+  },
+  {
     id: 21,
     name: 'LogHouse',
     description: 'The digital home and unified portfolio showcasing the combined works and crafts of three siblings.',
