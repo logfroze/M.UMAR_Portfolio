@@ -8,7 +8,7 @@ export const testimonials = [
   },
   {
     id: 2,
-    name: 'Razai Fatima',
+    name: 'Razia Fatima',
     role: 'Famous Artist and designer',
     text: 'Working with Alan was a fantastic experience. He understood my vision perfectly and created a portfolio that truly represents my art and brand.',
     avatar: 'RF',
