@@ -37,7 +37,7 @@ export default function About() {
           >
             <div className="about-photo">
               <div className="about-photo-placeholder">
-                <img src="/about/alan-pic.jpeg" alt="Alan Hanma Umar" />
+                <img src="/about/My image.png" alt="Alan Hanma Umar" />
               </div>
               <div className="about-photo-border" />
             </div>
