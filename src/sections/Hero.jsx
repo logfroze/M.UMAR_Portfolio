@@ -39,7 +39,7 @@ export default function Hero() {
 
       <div className="container profile-hero-content">
         <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }}>
-          <img src="/logos/alan-logo.png" alt="Alan" className="hero-logo" />
+          <img src="/logos/My image Passport size white background.png" alt="Alan" className="hero-logo" />
         </motion.div>
 
         <div className="hero-text-content">
@@ -97,7 +97,7 @@ export default function Hero() {
             <a href="#contact" className="btn-outline-custom">
               Contact Me <FaEnvelope />
             </a>
-            <a href="#" className="btn-outline-custom" title="Resume will be added soon">
+            <a href="/UMAR_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline-custom" title="View/Download Resume">
               Resume <FaFileDownload />
             </a>
           </motion.div>
