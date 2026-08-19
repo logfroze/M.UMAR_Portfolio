@@ -26,7 +26,7 @@ export default function Footer() {
             <a href="https://github.com/logfrozeofficial" target="_blank" rel="noopener noreferrer" className="footer-social" aria-label="GitHub">
               <FaGithub />
             </a>
-            <a href="#" className="footer-social" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/logfrozeofficial/" target="_blank" rel="noopener noreferrer" className="footer-social" aria-label="LinkedIn">
               <FaLinkedin />
             </a>
             <a href="mailto:logfrozeofficial@gmail.com" className="footer-social" aria-label="Email">
@@ -39,9 +39,6 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} Alan Hanma Umar. All rights reserved.</p>
-          <p className="footer-made">
-            Made with <FaHeart className="footer-heart" /> and clean code.
-          </p>
         </div>
       </div>
     </footer>
