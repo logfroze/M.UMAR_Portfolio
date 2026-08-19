@@ -1,6 +1,6 @@
 import {
   FaHtml5, FaCss3Alt, FaJsSquare, FaReact,
-  FaGitAlt, FaGithub, FaCode, FaPhp,
+  FaGitAlt, FaGithub, FaCode,
 } from 'react-icons/fa';
 import {
   SiFirebase, SiCanva, SiNextdotjs, SiTailwindcss,
@@ -32,7 +32,6 @@ export const skillCategories = [
       {
         label: 'Backend',
         skills: [
-          { name: 'PHP', icon: FaPhp },
           { name: 'Laravel', icon: SiLaravel },
           { name: 'REST APIs', icon: MdApi },
           { name: 'Firebase', icon: SiFirebase },
