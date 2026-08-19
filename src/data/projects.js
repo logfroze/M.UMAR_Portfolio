@@ -4,7 +4,7 @@ export const projects = [
   {
     id: 100,
     name: 'Log Froze Marketplace',
-    description: 'A comprehensive food marketplace application connecting users with local restaurants.',
+    description: 'A comprehensive food marketplace application connecting users with local home chefs to sell their daily meals and earn.',
     tech: ['React Native', 'Firebase', 'Laravel'],
     category: 'Apps',
     github: '#',
