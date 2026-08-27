@@ -1,0 +1,28 @@
+.resume-inline-section {
+  position: relative;
+}
+
+.resume-inline-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+/* A4 document centered within the section container */
+.resume-a4-inline {
+  margin: 0 auto;
+  border: 1px solid var(--border, #e0e0e0);
+}
+
+/* Reuse the button + A4 styles from ResumePage.css */
+/* These are already defined globally in ResumePage.css,
+   but we scope them here in case ResumePage isn't loaded */
+
+@media print {
+  .resume-inline-toolbar {
+    display: none !important;
+  }
+}

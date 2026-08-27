@@ -1,0 +1,98 @@
+.resume-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 28px 32px 24px 32px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.resume-header-photo-col {
+  flex-shrink: 0;
+}
+
+.resume-photo-wrapper {
+  width: 110px;
+  height: 110px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #4db8a4;
+}
+
+.resume-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.resume-header-info-col {
+  flex: 1;
+}
+
+.resume-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #111;
+  margin: 0 0 2px 0;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.resume-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4db8a4;
+  margin: 0 0 12px 0;
+}
+
+.resume-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.resume-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #333;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.resume-contact-item:hover {
+  color: #4db8a4;
+}
+
+.resume-contact-icon {
+  color: #4db8a4;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .resume-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 16px;
+  }
+  .resume-contacts {
+    align-items: center;
+  }
+  .resume-name {
+    font-size: 22px;
+  }
+}
+
+@media print {
+  .resume-header {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 24px 18px 24px;
+  }
+}
