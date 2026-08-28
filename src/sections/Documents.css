@@ -1,0 +1,418 @@
+/* ===================================================
+   Documents Section Styles
+   =================================================== */
+
+.documents-section {
+  position: relative;
+  padding: 80px 0;
+}
+
+/* Category Filter Tabs */
+.documents-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.documents-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: var(--card, #181c24);
+  border: 1px solid var(--border, #252b36);
+  color: var(--secondary, #7c8694);
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.documents-tab-btn:hover {
+  border-color: var(--primary, #4e8ef7);
+  color: var(--text, #ffffff);
+  transform: translateY(-2px);
+}
+
+.documents-tab-btn.active {
+  background: var(--primary, #4e8ef7);
+  border-color: var(--primary, #4e8ef7);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(78, 142, 247, 0.35);
+}
+
+.documents-tab-icon {
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.documents-tab-count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  color: inherit;
+}
+
+.documents-tab-btn.active .documents-tab-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Documents Grid */
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* Document Card */
+.document-card {
+  position: relative;
+  background: var(--card, #181c24);
+  border: 1px solid var(--border, #252b36);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.document-card:hover {
+  border-color: var(--primary, #4e8ef7);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.document-card-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #000000;
+  overflow: hidden;
+}
+
+.document-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.document-card:hover .document-card-img {
+  transform: scale(1.06);
+}
+
+/* Hover Overlay */
+.document-card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.document-card:hover .document-card-hover-overlay {
+  opacity: 1;
+}
+
+.document-card-hover-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary, #4e8ef7);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.document-card-hover-text {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+/* Category Badge */
+.document-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 6px;
+  border: 1px solid;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Document Info */
+.document-card-info {
+  padding: 14px 16px;
+  background: var(--card, #181c24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.document-card-title {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text, #ffffff);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* View All / View Less Toggle Button */
+.documents-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.documents-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.documents-toggle-btn:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(78, 142, 247, 0.35);
+}
+
+/* ===================================================
+   Lightbox Modal
+   =================================================== */
+
+.documents-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.documents-lightbox-container {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  background: var(--card, #181c24);
+  border: 1px solid var(--border, #252b36);
+  border-radius: var(--radius-xl, 16px);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Close & Nav Buttons */
+.documents-lightbox-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: var(--transition);
+}
+
+.documents-lightbox-btn:hover {
+  background: var(--danger, #e05252);
+  transform: rotate(90deg);
+}
+
+.documents-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: var(--transition);
+}
+
+.documents-lightbox-nav:hover {
+  background: var(--primary, #4e8ef7);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.documents-lightbox-prev {
+  left: 14px;
+}
+
+.documents-lightbox-next {
+  right: 14px;
+}
+
+/* Lightbox Image Box */
+.documents-lightbox-img-box {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  min-height: 320px;
+  background: #080a0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.documents-lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Lightbox Footer Bar */
+.documents-lightbox-footer {
+  padding: 16px 24px;
+  background: var(--card, #181c24);
+  border-top: 1px solid var(--border, #252b36);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.documents-lightbox-info-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.documents-lightbox-cat {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.documents-lightbox-title {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text, #ffffff);
+  margin: 0;
+}
+
+.documents-lightbox-counter {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.8rem;
+  color: var(--secondary, #7c8694);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.documents-lightbox-open-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--radius, 8px);
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.documents-lightbox-open-btn:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* ===================================================
+   Responsive Mobile Adjustments
+   =================================================== */
+
+@media (max-width: 768px) {
+  .documents-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  .documents-lightbox-img-box {
+    height: 50vh;
+  }
+
+  .documents-lightbox-footer {
+    padding: 12px 16px;
+  }
+
+  .documents-lightbox-prev {
+    left: 8px;
+  }
+
+  .documents-lightbox-next {
+    right: 8px;
+  }
+}

@@ -1,0 +1,399 @@
+/* ── Testimonials Grid ──────────────────────────────────────── */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── Static / existing review card ─────────────────────────── */
+.testimonial-card {
+  padding: 28px 24px;
+  position: relative;
+}
+
+.testimonial-card--user {
+  border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
+}
+
+.testimonial-quote-icon {
+  color: var(--primary);
+  font-size: 1.2rem;
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+
+/* Star rating on user reviews */
+.testimonial-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+
+.testimonial-stars .star-filled {
+  color: #f59e0b;
+  font-size: 0.85rem;
+}
+
+.testimonial-stars .star-empty {
+  color: var(--border);
+  font-size: 0.85rem;
+}
+
+.testimonial-text {
+  font-size: 0.92rem;
+  color: var(--secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  flex-wrap: wrap;
+}
+
+.testimonial-avatar {
+  width: 42px;
+  height: 42px;
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.testimonial-role {
+  font-size: 0.78rem;
+  color: var(--secondary);
+}
+
+.testimonial-user-badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+
+/* ── Add Review Card ─────────────────────────────────────────── */
+.testimonial-add-card {
+  padding: 28px 24px;
+  border: 1.5px dashed var(--border);
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  width: 100%;
+  transition: var(--transition);
+}
+
+.testimonial-add-card:hover {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 5%, transparent);
+  box-shadow: var(--shadow-glow);
+}
+
+.testimonial-add-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonial-add-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+.testimonial-add-card:hover .testimonial-add-icon {
+  background: var(--primary);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.testimonial-add-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.testimonial-add-hint {
+  font-size: 0.8rem;
+  color: var(--secondary);
+  margin: 0;
+}
+
+/* ── Review Modal Overlay ────────────────────────────────────── */
+.review-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  padding: 20px;
+}
+
+.review-modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 500px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 32px 28px 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  scrollbar-width: thin;
+}
+
+/* ── Modal Header ────────────────────────────────────────────── */
+.review-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.review-modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 4px;
+}
+
+.review-modal-sub {
+  font-size: 0.82rem;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.review-modal-close {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: var(--transition);
+  font-size: 0.85rem;
+}
+
+.review-modal-close:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ── Form Fields ─────────────────────────────────────────────── */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.review-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.review-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.3px;
+}
+
+.review-input,
+.review-textarea {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  padding: 11px 14px;
+  transition: border-color 0.2s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.review-input:focus,
+.review-textarea:focus {
+  border-color: var(--primary);
+}
+
+.review-input--error {
+  border-color: #f85149 !important;
+}
+
+.review-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.review-char-count {
+  font-size: 0.72rem;
+  color: var(--secondary);
+  text-align: right;
+  margin-top: 2px;
+}
+
+.review-error {
+  font-size: 0.75rem;
+  color: #f85149;
+  margin-top: 2px;
+}
+
+/* ── Star Rating Picker ──────────────────────────────────────── */
+.review-star-picker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.review-star-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: var(--border);
+  transition: color 0.15s, transform 0.15s;
+  line-height: 1;
+}
+
+.review-star-btn.active {
+  color: #f59e0b;
+}
+
+.review-star-btn:hover {
+  transform: scale(1.2);
+}
+
+.review-star-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-left: 4px;
+}
+
+/* ── Submit Button ───────────────────────────────────────────── */
+.review-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 28px;
+  border-radius: 30px;
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  font-family: var(--font-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 4px;
+}
+
+.review-submit-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(78, 142, 247, 0.4);
+}
+
+/* ── Success State ───────────────────────────────────────────── */
+.review-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 0 16px;
+  gap: 10px;
+}
+
+.review-success-icon {
+  font-size: 3rem;
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  0%   { transform: scale(0.5); }
+  80%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.review-success h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.review-success p {
+  font-size: 0.87rem;
+  color: var(--secondary);
+  margin: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-modal {
+    padding: 24px 18px 20px;
+  }
+}
