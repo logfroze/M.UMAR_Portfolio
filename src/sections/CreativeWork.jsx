@@ -154,9 +154,6 @@ const creativeItems = [
       '/creative/thumbnails/waheed/White Purple Simple Modern Course Trailer Youtube Thumbnail.png',
       '/creative/thumbnails/waheed/Colorful Simple Fraction Practice Math Presentation.png',
       '/creative/thumbnails/waheed/Colorful Simple Fraction Practice Math Presentation (1).png',
-      // other
-      '/creative/thumbnails/IMG-20250628-WA0011.jpg',
-      '/creative/thumbnails/WhatsApp Image 2025-06-03 at 16.56.45_cc5a06bf.jpg',
     ],
   },
 ];
