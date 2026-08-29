@@ -5,6 +5,10 @@ import { ThemeProvider } from './context/ThemeContext'
 import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+import { registerSW } from 'virtual:pwa-register'
+
+// Auto-update service worker immediately on new releases
+registerSW({ immediate: true })
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
