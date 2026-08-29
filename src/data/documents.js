@@ -7,10 +7,10 @@ import {
 } from 'react-icons/fa';
 
 export const documentCategories = [
-  { id: 'all', label: 'All Documents', count: 21 },
+  { id: 'all', label: 'All Documents', count: 23 },
   { id: 'Education', label: 'Education', icon: FaGraduationCap, color: '#4e8ef7', count: 7 },
   { id: 'Info', label: 'Info & Identity', icon: FaInfoCircle, color: '#2dd4bf', count: 3 },
-  { id: 'Curriculum', label: 'Extra-Curriculum', icon: FaBook, color: '#f59e0b', count: 5 },
+  { id: 'Curriculum', label: 'Extra-Curriculum', icon: FaBook, color: '#f59e0b', count: 7 },
   { id: 'Cards', label: 'Cards', icon: FaIdCard, color: '#a855f7', count: 6 },
 ];
 
@@ -99,7 +99,7 @@ export const documentsData = [
     color: '#2dd4bf',
   },
 
-  // ── 3. Extra-Curriculum (5 items) ───────────────────────────
+  // ── 3. Extra-Curriculum (7 items) ───────────────────────────
   {
     id: 'curr-1',
     title: 'Extra-Curricular Certificate 1',
@@ -138,6 +138,22 @@ export const documentsData = [
     category: 'Curriculum',
     categoryLabel: 'Extra-Curriculum',
     image: '/documents/Curriculum/PXL_20260822_092227381.jpg',
+    color: '#f59e0b',
+  },
+  {
+    id: 'curr-6',
+    title: 'Extra-Curricular Certificate 3',
+    category: 'Curriculum',
+    categoryLabel: 'Extra-Curriculum',
+    image: '/documents/Curriculum/IMG-20250628-WA0011.jpg',
+    color: '#f59e0b',
+  },
+  {
+    id: 'curr-7',
+    title: 'Extra-Curricular Certificate 4',
+    category: 'Curriculum',
+    categoryLabel: 'Extra-Curriculum',
+    image: '/documents/Curriculum/WhatsApp Image 2025-06-03 at 16.56.45_cc5a06bf.jpg',
     color: '#f59e0b',
   },
 
