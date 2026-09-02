@@ -134,7 +134,7 @@ export const projects = [
     tech: ['React', 'Supabase', 'Tailwind CSS'],
     category: 'Apps',
     github: '#',
-    live: 'https://stockup-ecru.vercel.app',
+    live: 'https://stockup-mini.vercel.app',
     image: '/projects/stockup.png',
     status: 'live',
   },
