@@ -12,13 +12,13 @@ export const internshipMeta = {
     { label: 'Timeline', value: '10 Sep – 10 Oct' },
     { label: 'Format', value: 'Online / Remote' },
     { label: 'Programs Completed', value: '2 Programs' },
-    { label: 'Projects Built', value: '7 Projects' },
+    { label: 'Projects Built', value: '8 Projects' },
   ],
 };
 
 export const internshipPrograms = [
-  { id: 'All', label: 'All Programs', count: 7 },
-  { id: 'FrontEnd Development', label: 'FrontEnd Development', count: 3 },
+  { id: 'All', label: 'All Programs', count: 8 },
+  { id: 'FrontEnd Development', label: 'FrontEnd Development', count: 4 },
   { id: 'Python Programming', label: 'Python Programming', count: 4 },
 ];
 
@@ -58,6 +58,18 @@ export const internshipProjects = [
     image: '/internships/codealpha/music_player.png',
     github: 'https://github.com/logfroze/CodeAlpha_MusicPlayer',
     live: 'https://logfroze.github.io/CodeAlpha_MusicPlayer/',
+    status: 'live',
+  },
+  {
+    id: 'fe-4',
+    name: 'Personal Portfolio Website',
+    program: 'FrontEnd Development',
+    programId: 'FrontEnd Development',
+    description: 'A modern, responsive personal developer portfolio showcasing engineering projects, technical competencies, internship milestones, and interactive contact workflows hand-crafted with clean web standards.',
+    tech: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+    image: '/internships/codealpha/portfolio.png',
+    github: 'https://github.com/logfroze/CodeAlpha_Portfolio',
+    live: 'https://logfroze.github.io/CodeAlpha_Portfolio/',
     status: 'live',
   },
 
