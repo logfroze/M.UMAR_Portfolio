@@ -4,6 +4,7 @@ import Hero from '../sections/Hero';
 import About from '../sections/About';
 import Skills from '../sections/Skills';
 import Projects from '../sections/Projects';
+import Internships from '../sections/Internships';
 import ResumeSection from '../sections/ResumeSection';
 import Documents from '../sections/Documents';
 import CreativeWork from '../sections/CreativeWork';
@@ -28,6 +29,7 @@ export default function AlanPage() {
       <About />
       <Skills />
       <Projects />
+      <Internships />
       <ResumeSection />
       <Documents />
       <CreativeWork />
