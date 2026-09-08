@@ -219,7 +219,7 @@ export const projects = [
   // ── Coming Soon ──────────────────────────────────────────────
   {
     id: 9,
-    name: 'FYP Website',
+    name: 'YP Website',
     description: 'Professional business website with service listings, client testimonials, and contact management.',
     tech: ['React', 'Bootstrap', 'Firebase', 'CSS'],
     category: 'Business',
