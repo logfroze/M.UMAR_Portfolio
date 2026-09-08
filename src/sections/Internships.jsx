@@ -54,7 +54,7 @@ export default function Internships() {
           <span className="section-label">Internships</span>
           <h2 className="section-title">Professional Experience</h2>
           <p className="section-subtitle">
-            Industry-driven internship focused on hands-on software development, featuring 7 delivered projects across dual engineering tracks.
+            Industry-driven internship focused on hands-on software development, featuring 8 delivered projects across dual engineering tracks.
           </p>
         </motion.div>
 
@@ -126,7 +126,7 @@ export default function Internships() {
                 </div>
                 <div className="meta-info">
                   <span className="meta-label">Delivered Projects</span>
-                  <span className="meta-val">7 Production Projects</span>
+                  <span className="meta-val">8 Production Projects</span>
                 </div>
               </div>
             </div>
