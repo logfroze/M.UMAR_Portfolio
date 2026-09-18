@@ -10,10 +10,14 @@ import {
   FaExternalLinkAlt,
   FaFileAlt
 } from 'react-icons/fa';
-import { documentCategories, documentsData } from '../data/documents';
+import { documentCategories, documentsData as staticDocumentsData } from '../data/documents';
+import { usePortfolioData } from '../admin/context/AdminDataContext';
 import './Documents.css';
 
 export default function Documents() {
+  const { documents: contextDocuments } = usePortfolioData();
+  const documentsData = (contextDocuments && contextDocuments.length > 0) ? contextDocuments : staticDocumentsData;
+
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [showAll, setShowAll] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(null);

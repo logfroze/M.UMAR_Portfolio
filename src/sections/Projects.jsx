@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaClock, FaCheckCircle, FaHourglassHalf, FaThLarge, FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { projects, projectCategories } from '../data/projects';
+import { usePortfolioData } from '../admin/context/AdminDataContext';
+import { projects as fallbackProjects, projectCategories } from '../data/projects';
 import './Projects.css';
 
 /* Color map for tech badges */
@@ -30,6 +31,14 @@ const STATUS_TABS = [
 ];
 
 export default function Projects() {
+  const { projects: dynamicProjects, sections, isPublicViewer } = usePortfolioData();
+  const projects = (dynamicProjects && dynamicProjects.length > 0) ? dynamicProjects : fallbackProjects;
+
+  // If entire projects section is marked private and visitor is viewing
+  if (isPublicViewer && sections?.projects === 'private') {
+    return null;
+  }
+
   const [filter, setFilter]         = useState('All');       // category filter
   const [statusTab, setStatusTab]   = useState('All');       // status filter
   const [showAll, setShowAll]       = useState(false);
@@ -78,6 +87,18 @@ export default function Projects() {
         whileHover={{ y: -6, transition: { duration: 0.2 } }}
       >
         <div className="project-card-image">
+          {/* Newly Updated Shiny Star Badge */}
+          {project.isNewlyUpdated && (
+            <div className="card-update-star-badge" title="Updated recently">
+              <img
+                src="/Update_star.png"
+                alt="Updated"
+                className="card-update-star-img"
+              />
+              <span className="card-update-star-label">Updated</span>
+            </div>
+          )}
+
           {project.image ? (
             <img
               src={project.image}

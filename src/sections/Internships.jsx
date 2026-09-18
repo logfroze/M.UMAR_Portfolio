@@ -12,10 +12,11 @@ import {
   FaTerminal
 } from 'react-icons/fa';
 import {
-  internshipMeta,
-  internshipPrograms,
-  internshipProjects
+  internshipMeta as staticMeta,
+  internshipPrograms as staticPrograms,
+  internshipProjects as staticProjects,
 } from '../data/internships';
+import { usePortfolioData } from '../admin/context/AdminDataContext';
 import './Internships.css';
 
 /* Color map for tech badges matching the portfolio theme */
@@ -34,6 +35,41 @@ const techColors = {
 };
 
 export default function Internships() {
+  const { internships: contextInternships } = usePortfolioData();
+
+  // Derive flat data shape from context (hierarchical provider → programs → projects)
+  // or fall back to static data if context is empty.
+  let internshipMeta = staticMeta;
+  let internshipPrograms = staticPrograms;
+  let internshipProjects = staticProjects;
+
+  if (contextInternships && contextInternships.length > 0) {
+    const provider = contextInternships[0];
+    internshipMeta = {
+      company: provider.company,
+      role: provider.role,
+      duration: provider.duration,
+      durationLabel: provider.durationLabel,
+      type: provider.type,
+      status: provider.status,
+      description: provider.description,
+      metrics: provider.metrics || [],
+    };
+    // Flatten all projects from all programs
+    internshipProjects = (provider.programs || []).flatMap(prog =>
+      (prog.projects || []).map(p => ({ ...p, program: prog.label || prog.id }))
+    );
+    // Build programs list
+    internshipPrograms = [
+      { id: 'All', label: 'All Programs', count: internshipProjects.length },
+      ...(provider.programs || []).map(prog => ({
+        id: prog.label || prog.id,
+        label: prog.label || prog.id,
+        count: (prog.projects || []).length,
+      })),
+    ];
+  }
+
   const [activeProgram, setActiveProgram] = useState('All');
 
   const filteredProjects = activeProgram === 'All'

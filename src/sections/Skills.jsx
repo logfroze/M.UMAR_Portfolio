@@ -1,9 +1,24 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { skillCategories } from '../data/skills';
+import { skillCategories as staticSkillCategories } from '../data/skills';
+import { usePortfolioData } from '../admin/context/AdminDataContext';
+import { getIconComponent } from '../admin/components/IconResolver';
 import './Skills.css';
 
 export default function Skills() {
+  const { skills: contextSkills } = usePortfolioData();
+  // Use context data if available, otherwise fall back to static data
+  const rawCategories = (contextSkills && contextSkills.length > 0) ? contextSkills : staticSkillCategories;
+  // Normalise: resolve string icon names to actual components for context data
+  const skillCategories = rawCategories.map(cat => ({
+    ...cat,
+    subGroups: cat.subGroups?.map(sg => ({
+      ...sg,
+      skills: sg.skills.map(s => ({ ...s, icon: getIconComponent(s.icon) })),
+    })),
+    skills: cat.skills?.map(s => ({ ...s, icon: getIconComponent(s.icon) })),
+  }));
+
   const [activeTab, setActiveTab] = useState(0);
   const activeCategory = skillCategories[activeTab];
 

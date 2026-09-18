@@ -6,13 +6,15 @@ import {
   FaImages, FaPlay
 } from 'react-icons/fa';
 import { MdDesignServices, MdBrush } from 'react-icons/md';
+import { usePortfolioData } from '../admin/context/AdminDataContext';
+import { getIconComponent } from '../admin/components/IconResolver';
 import './CreativeWork.css';
 
 /* ─────────────────────────────────────────────────────────────
    Gallery data: each creative item gets an `images` array.
    Video items get a `driveLink` instead.
 ───────────────────────────────────────────────────────────── */
-const creativeItems = [
+const staticCreativeItems = [
   {
     id: 1,
     title: 'Brand Identity Design',
@@ -162,6 +164,14 @@ const creativeItems = [
    Component
 ───────────────────────────────────────────────────────────── */
 export default function CreativeWork() {
+  const { creativeWork: contextCreativeWork } = usePortfolioData();
+  // Use context if it has data, otherwise fall back to static
+  const rawItems = (contextCreativeWork && contextCreativeWork.length > 0)
+    ? contextCreativeWork
+    : staticCreativeItems;
+  // Resolve icon strings to components
+  const creativeItems = rawItems.map(item => ({ ...item, icon: getIconComponent(item.icon) }));
+
   const [gallery, setGallery] = useState(null);   // { item, index }
   const openGallery = (item, index = 0) => setGallery({ item, index });
   const closeGallery = () => setGallery(null);
@@ -223,6 +233,14 @@ export default function CreativeWork() {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 onClick={() => isVideo ? window.open(item.driveLink, '_blank', 'noopener,noreferrer') : openGallery(item, 0)}
               >
+                {/* Newly Updated Shiny Star Badge */}
+                {item.isNewlyUpdated && (
+                  <div className="card-update-star-badge" title="Recently Updated">
+                    <img src="/Update_star.png" alt="Updated" className="card-update-star-img" />
+                    <span className="card-update-star-label">Updated</span>
+                  </div>
+                )}
+
                 {/* Background — real image if available, gradient otherwise */}
                 <div
                   className="creative-card-bg"

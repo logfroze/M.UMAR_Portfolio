@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
-import { timelineEvents } from '../data/timeline';
+import { timelineEvents as staticTimelineEvents } from '../data/timeline';
+import { usePortfolioData } from '../admin/context/AdminDataContext';
 import './Journey.css';
 
 export default function Journey() {
+  const { timeline: contextTimeline } = usePortfolioData();
+  const timelineEvents = (contextTimeline && contextTimeline.length > 0) ? contextTimeline : staticTimelineEvents;
+
   return (
     <section id="journey" className="section section-alt">
       <div className="container">

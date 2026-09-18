@@ -17,7 +17,8 @@ import {
   FaSearchPlus,
   FaSearchMinus
 } from 'react-icons/fa';
-import { writings } from '../data/writings';
+import { writings as staticWritings } from '../data/writings';
+import { usePortfolioData } from '../admin/context/AdminDataContext';
 import './Writing.css';
 
 const icons = {
@@ -43,6 +44,9 @@ const colors = {
 };
 
 export default function Writing() {
+  const { writings: contextWritings } = usePortfolioData();
+  const writings = (contextWritings && contextWritings.length > 0) ? contextWritings : staticWritings;
+
   const [activeReading, setActiveReading] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [zoomLevel, setZoomLevel] = useState(100); // in percent
@@ -145,6 +149,14 @@ export default function Writing() {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 onClick={() => isReadable && openReader(w)}
               >
+                {/* Newly Updated Shiny Star Badge */}
+                {w.isNewlyUpdated && (
+                  <div className="card-update-star-badge" title="Recently Updated">
+                    <img src="/Update_star.png" alt="Updated" className="card-update-star-img" />
+                    <span className="card-update-star-label">Updated</span>
+                  </div>
+                )}
+
                 {/* Header with Icon and Status badge */}
                 <div className="writing-card-top">
                   <div
