@@ -193,6 +193,94 @@
   color: var(--text, #ffffff);
 }
 
+.admin-auth-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.admin-auth-calendar-link {
+  background: transparent;
+  border: none;
+  color: var(--primary, #4e8ef7);
+  font-size: 0.76rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.admin-auth-calendar-link:hover {
+  background: color-mix(in srgb, var(--primary, #4e8ef7) 12%, transparent);
+  color: var(--primary-hover, #6ba3f8);
+}
+
+.admin-auth-dob-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.admin-auth-dob-wrapper .admin-auth-input {
+  width: 100%;
+  padding-right: 38px;
+}
+
+.admin-auth-calendar-picker-container {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.admin-auth-dob-btn {
+  background: transparent;
+  border: none;
+  color: var(--secondary, #7c8694);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+  pointer-events: none;
+}
+
+.admin-auth-calendar-picker-container:hover .admin-auth-dob-btn {
+  color: var(--primary, #4e8ef7);
+}
+
+.admin-auth-native-date-trigger {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.admin-auth-native-date-trigger::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
 .admin-auth-footer {
   display: flex;
   align-items: center;
