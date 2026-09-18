@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
+import { usePortfolioData } from '../admin/context/AdminDataContext';
 import './Navbar.css';
 
 const navItems = [
@@ -46,13 +47,37 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { isAdmin, openAuthModal } = usePortfolioData();
+
+  // ---- 5-click secret trigger on brand logo ----
+  const clickCountRef = useRef(0);
+  const clickTimerRef = useRef(null);
+
+  const handleBrandClick = (e) => {
+    e.preventDefault();
+    handleClick('home');
+    if (isAdmin) return; // Already logged in, no need to trigger
+
+    clickCountRef.current += 1;
+    if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
+    clickTimerRef.current = setTimeout(() => {
+      clickCountRef.current = 0;
+    }, 3000);
+
+    if (clickCountRef.current >= 5) {
+      clickCountRef.current = 0;
+      clearTimeout(clickTimerRef.current);
+      openAuthModal();
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
 
       const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPos = window.scrollY + 120;
+      const adminBarHeight = document.body.classList.contains('admin-mode-active') ? 44 : 0;
+      const scrollPos = window.scrollY + 120 + adminBarHeight;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         if (sections[i] && sections[i].offsetTop <= scrollPos) {
@@ -69,7 +94,9 @@ export default function Navbar() {
     setMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const navOffset = 70;
+      // When admin bar is visible (44px) the navbar sits lower, so increase the offset
+      const adminBarHeight = document.body.classList.contains('admin-mode-active') ? 44 : 0;
+      const navOffset = 70 + adminBarHeight;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
 
@@ -85,7 +112,7 @@ export default function Navbar() {
       <div className="nav-container">
         <div className="nav-brand-group">
 
-          <a href="#home" className="nav-brand" onClick={(e) => { e.preventDefault(); handleClick('home'); }}>
+          <a href="#home" className="nav-brand" onClick={handleBrandClick}>
             <img src="/logos/pwa-logo.png" alt="Alan Logo" className="brand-logo-img" />
             <span className="brand-text">Alan<span className="brand-dot">.</span></span>
           </a>

@@ -9,6 +9,11 @@
   background: transparent;
 }
 
+/* When admin bar (44px) is visible, push navbar below it */
+body.admin-mode-active .navbar-custom {
+  top: 44px;
+}
+
 .navbar-custom.scrolled {
   background: var(--bg-glass);
   backdrop-filter: blur(16px);
@@ -302,7 +307,6 @@
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
     border-bottom: 1px solid var(--border) !important;
-    top: 0;
     left: 0;
     right: 0;
   }
