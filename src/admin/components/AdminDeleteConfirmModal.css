@@ -1,0 +1,114 @@
+.admin-delete-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 110000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.admin-delete-modal {
+  background: var(--card, #181c24);
+  border: 1px solid var(--border, #252b36);
+  border-radius: var(--radius-lg, 12px);
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  color: var(--text, #ffffff);
+  overflow: hidden;
+}
+
+.admin-delete-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border, #252b36);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.admin-delete-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(224, 82, 82, 0.15);
+  border: 1px solid rgba(224, 82, 82, 0.35);
+  color: #ff7b7b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.admin-delete-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.admin-delete-close {
+  background: transparent;
+  border: none;
+  color: var(--secondary, #7c8694);
+  cursor: pointer;
+  padding: 6px;
+}
+
+.admin-delete-close:hover {
+  color: var(--text, #ffffff);
+}
+
+.admin-delete-body {
+  padding: 20px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--secondary, #7c8694);
+}
+
+.admin-delete-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border, #252b36);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  background: color-mix(in srgb, var(--bg, #0f1117) 50%, transparent);
+}
+
+.admin-delete-btn-cancel {
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--border, #252b36);
+  border-radius: var(--radius, 8px);
+  color: var(--secondary, #7c8694);
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.admin-delete-btn-cancel:hover {
+  background: var(--border, #252b36);
+  color: var(--text, #ffffff);
+}
+
+.admin-delete-btn-confirm {
+  padding: 8px 18px;
+  background: var(--danger, #e05252);
+  border: none;
+  border-radius: var(--radius, 8px);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-delete-btn-confirm:hover {
+  background: #f06161;
+}

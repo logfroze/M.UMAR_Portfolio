@@ -1,0 +1,62 @@
+.admin-vis-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.admin-vis-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.admin-vis-badge--public,
+.admin-vis-btn--public {
+  background: rgba(52, 168, 90, 0.15);
+  color: #34a85a;
+  border: 1px solid rgba(52, 168, 90, 0.35);
+}
+
+.admin-vis-btn--public:hover {
+  background: rgba(52, 168, 90, 0.25);
+  border-color: #34a85a;
+}
+
+.admin-vis-badge--private,
+.admin-vis-btn--private {
+  background: rgba(224, 82, 82, 0.15);
+  color: #ff7b7b;
+  border: 1px solid rgba(224, 82, 82, 0.35);
+}
+
+.admin-vis-btn--private:hover {
+  background: rgba(224, 82, 82, 0.25);
+  border-color: #e05252;
+}
+
+.admin-vis-badge--sm,
+.admin-vis-btn--sm {
+  padding: 2px 6px;
+  font-size: 0.65rem;
+}
+
+.admin-vis-badge--lg,
+.admin-vis-btn--lg {
+  padding: 6px 12px;
+  font-size: 0.82rem;
+}

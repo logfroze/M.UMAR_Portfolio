@@ -1,0 +1,649 @@
+/* ============================================
+   SECTION EDITORS — Theme-aware shared styles
+   All colours use the portfolio design system tokens.
+   ============================================ */
+
+/* Section Editor container */
+.section-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+.section-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-editor-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-editor-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.section-editor-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Preview pane */
+.section-editor-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  background: color-mix(in srgb, var(--text) 3%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.preview-field label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.preview-field p,
+.preview-paragraph {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  margin: 0 0 6px 0;
+  line-height: 1.6;
+}
+
+.preview-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preview-stat-chip {
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  color: var(--primary);
+}
+
+/* Form elements */
+.section-editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.section-editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* Paragraph editor row */
+.paragraph-editor-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.paragraph-editor-row .admin-input-control {
+  flex: 1;
+}
+
+/* Stat pair */
+.stat-edit-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ============================================
+   Generic Shared Admin Controls
+   ============================================ */
+
+.admin-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-input-group label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--secondary);
+  display: block;
+}
+
+.admin-input-control {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 13px;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.admin-input-control:focus {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 4%, var(--bg));
+}
+
+.admin-input-control option {
+  background: var(--card);
+  color: var(--text);
+}
+
+.admin-helper-text {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Grids */
+.admin-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.admin-col-span-2 {
+  grid-column: span 2;
+}
+
+/* Buttons */
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: inherit;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.admin-btn--primary {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.admin-btn--primary:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.admin-btn--ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--secondary);
+}
+
+.admin-btn--ghost:hover {
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+  color: var(--text);
+}
+
+.admin-btn--sm {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+.admin-btn--xs {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+}
+
+.admin-btn--danger {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--danger) 45%, transparent);
+  color: var(--danger);
+}
+
+.admin-btn--danger:hover {
+  background: var(--danger);
+  color: #fff;
+}
+
+.admin-btn--danger-sm {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: var(--danger);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.admin-btn--danger-sm:hover {
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+}
+
+/* Icon button */
+.admin-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.admin-icon-btn:hover {
+  background: color-mix(in srgb, var(--text) 7%, transparent);
+  color: var(--text);
+}
+
+.admin-icon-btn--danger:hover {
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  border-color: color-mix(in srgb, var(--danger) 32%, transparent);
+  color: var(--danger);
+}
+
+.admin-icon-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.admin-icon-btn--active-star {
+  border-color: rgba(255, 215, 0, 0.75) !important;
+  background: rgba(255, 215, 0, 0.18) !important;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.25);
+}
+
+.admin-icon-btn--active-star:hover {
+  background: rgba(255, 215, 0, 0.28) !important;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+/* ============================================
+   Items List (Projects, Documents, etc.)
+   ============================================ */
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: color-mix(in srgb, var(--text) 2.5%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: background 0.15s ease;
+}
+
+.item-row:hover {
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+}
+
+.item-row--compact {
+  padding: 7px 10px;
+  background: color-mix(in srgb, var(--text) 1.5%, transparent);
+}
+
+.item-row.is-private {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.item-row-thumb {
+  width: 48px;
+  height: 36px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-thumb-placeholder {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.item-row-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-row-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-row-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.item-meta-badge {
+  font-size: 0.72rem;
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+  border-radius: 4px;
+  padding: 1px 8px;
+  color: var(--secondary);
+}
+
+.badge-green { color: var(--success) !important; background: color-mix(in srgb, var(--success) 10%, transparent) !important; }
+.badge-yellow { color: var(--warning) !important; background: color-mix(in srgb, var(--warning) 10%, transparent) !important; }
+
+.item-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 32px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+}
+
+.empty-state--sm {
+  padding: 14px;
+  font-size: 0.82rem;
+  border: none;
+}
+
+/* ============================================
+   Skills Editor specifics
+   ============================================ */
+
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skills-category-block {
+  background: color-mix(in srgb, var(--text) 2%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.skills-category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.skills-category-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.skills-subgroup-block {
+  margin-bottom: 12px;
+  padding-left: 8px;
+  border-left: 2px solid color-mix(in srgb, var(--primary) 28%, transparent);
+}
+
+.skills-subgroup-label-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.skills-subgroup-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.skills-editor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.skills-editor-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 10px;
+  background: color-mix(in srgb, var(--text) 3%, transparent);
+  border-radius: 7px;
+  border: 1px solid var(--border);
+}
+
+.skills-editor-item.is-private {
+  opacity: 0.55;
+  border-style: dashed;
+}
+
+.skills-editor-item-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.skills-editor-item-name {
+  font-size: 0.87rem;
+  color: var(--text);
+}
+
+.skills-editor-item-icon {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.skills-editor-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ============================================
+   Internships Editor specifics
+   ============================================ */
+
+.internship-provider-block {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.internship-provider-block.is-private {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.internship-provider-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--text) 3%, transparent);
+}
+
+.internship-provider-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  flex: 1;
+  text-align: left;
+  font-family: inherit;
+}
+
+.internship-provider-toggle svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.internship-provider-name {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.internship-provider-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding-left: 4px;
+}
+
+.internship-provider-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.internship-programs-area {
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+  border-top: 1px solid var(--border);
+}
+
+.internship-programs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.internship-programs-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.internship-program-block {
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--text) 2.5%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.internship-program-block.is-private {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.internship-program-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.internship-program-name {
+  font-size: 0.87rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.internship-program-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.internship-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (max-width: 640px) {
+  .admin-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .admin-col-span-2 {
+    grid-column: span 1;
+  }
+  .item-row-actions {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .section-editor-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

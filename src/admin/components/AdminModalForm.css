@@ -1,0 +1,172 @@
+/* Admin Modal Form CSS */
+.admin-form-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 105000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.admin-form-modal {
+  background: var(--card, #181c24);
+  border: 1px solid var(--border, #252b36);
+  border-radius: var(--radius-lg, 12px);
+  width: 100%;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+  color: var(--text, #ffffff);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 90vh;
+}
+
+.admin-form-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border, #252b36);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: color-mix(in srgb, var(--bg, #0f1117) 60%, transparent);
+}
+
+.admin-form-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text, #ffffff);
+}
+
+.admin-form-subtitle {
+  font-size: 0.8rem;
+  color: var(--secondary, #7c8694);
+  margin: 2px 0 0;
+}
+
+.admin-form-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--secondary, #7c8694);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-form-close-btn:hover {
+  color: var(--text, #ffffff);
+  background: var(--border, #252b36);
+}
+
+.admin-form-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.admin-form-body {
+  padding: 22px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-form-footer {
+  padding: 14px 22px;
+  border-top: 1px solid var(--border, #252b36);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  background: color-mix(in srgb, var(--bg, #0f1117) 50%, transparent);
+}
+
+.admin-form-btn-cancel {
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--border, #252b36);
+  border-radius: var(--radius, 8px);
+  color: var(--secondary, #7c8694);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.admin-form-btn-cancel:hover:not(:disabled) {
+  background: var(--border, #252b36);
+  color: var(--text, #ffffff);
+}
+
+.admin-form-btn-save {
+  padding: 8px 20px;
+  background: var(--primary, #4e8ef7);
+  border: none;
+  border-radius: var(--radius, 8px);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-form-btn-save:hover:not(:disabled) {
+  background: var(--primary-hover, #6ba3f8);
+}
+
+/* Global Form Controls within Admin */
+.admin-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-input-group label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--secondary, #7c8694);
+}
+
+.admin-input-control {
+  background: var(--bg, #0f1117);
+  border: 1px solid var(--border, #252b36);
+  border-radius: var(--radius, 8px);
+  color: var(--text, #ffffff);
+  padding: 9px 12px;
+  font-size: 0.9rem;
+  font-family: var(--font-primary, sans-serif);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.admin-input-control:focus {
+  border-color: var(--primary, #4e8ef7);
+}
+
+textarea.admin-input-control {
+  min-height: 85px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.admin-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .admin-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

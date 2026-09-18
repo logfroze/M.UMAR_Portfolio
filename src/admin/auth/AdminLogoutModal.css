@@ -1,0 +1,189 @@
+/* Admin Logout Modal CSS */
+.admin-logout-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.admin-logout-modal {
+  background: var(--card, #181c24);
+  border: 1px solid var(--border, #252b36);
+  border-radius: var(--radius-lg, 12px);
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  color: var(--text, #ffffff);
+  overflow: hidden;
+}
+
+.admin-logout-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border, #252b36);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: color-mix(in srgb, var(--bg, #0f1117) 60%, transparent);
+}
+
+.admin-logout-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-logout-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(224, 82, 82, 0.15);
+  border: 1px solid rgba(224, 82, 82, 0.35);
+  color: #ff7b7b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.admin-logout-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text, #ffffff);
+}
+
+.admin-logout-subtitle {
+  font-size: 0.78rem;
+  color: var(--secondary, #7c8694);
+  margin: 2px 0 0;
+}
+
+.admin-logout-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--secondary, #7c8694);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-logout-close-btn:hover {
+  color: var(--text, #ffffff);
+  background: var(--border, #252b36);
+}
+
+.admin-logout-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-logout-error {
+  padding: 10px 14px;
+  border-radius: var(--radius, 8px);
+  background: rgba(224, 82, 82, 0.12);
+  border: 1px solid rgba(224, 82, 82, 0.35);
+  color: #ff7b7b;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-logout-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-logout-label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--secondary, #7c8694);
+}
+
+.admin-logout-pin-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.admin-logout-input {
+  width: 100%;
+  background: var(--bg, #0f1117);
+  border: 1px solid var(--border, #252b36);
+  border-radius: var(--radius, 8px);
+  color: var(--text, #ffffff);
+  padding: 9px 38px 9px 12px;
+  font-size: 0.95rem;
+  font-family: var(--font-primary, sans-serif);
+  outline: none;
+  letter-spacing: 2px;
+}
+
+.admin-logout-input:focus {
+  border-color: var(--primary, #4e8ef7);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary, #4e8ef7) 20%, transparent);
+}
+
+.admin-logout-pin-toggle {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--secondary, #7c8694);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.admin-logout-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.admin-logout-btn-cancel {
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--border, #252b36);
+  border-radius: var(--radius, 8px);
+  color: var(--secondary, #7c8694);
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.admin-logout-btn-cancel:hover {
+  background: var(--border, #252b36);
+  color: var(--text, #ffffff);
+}
+
+.admin-logout-btn-submit {
+  padding: 8px 18px;
+  background: var(--danger, #e05252);
+  border: none;
+  border-radius: var(--radius, 8px);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-logout-btn-submit:hover:not(:disabled) {
+  background: #f06161;
+}
+
+.admin-logout-btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
