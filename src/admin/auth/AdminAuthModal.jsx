@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaShieldAlt, FaLock, FaTimes, FaEye, FaEyeSlash, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
+import { FaShieldAlt, FaLock, FaTimes, FaEye, FaEyeSlash, FaExclamationTriangle, FaCheckCircle, FaCalendarAlt } from 'react-icons/fa';
 import { verifyAdminCredentials } from './adminAuthConfig';
 import { usePortfolioData } from '../context/AdminDataContext';
 import './AdminAuthModal.css';
@@ -24,6 +24,18 @@ export default function AdminAuthModal() {
   const [loading, setLoading] = useState(false);
   const [generalError, setGeneralError] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});
+  const datePickerRef = useRef(null);
+
+  const handleOpenDatePicker = () => {
+    if (datePickerRef.current) {
+      if (typeof datePickerRef.current.showPicker === 'function') {
+        datePickerRef.current.showPicker();
+      } else {
+        datePickerRef.current.focus();
+        datePickerRef.current.click();
+      }
+    }
+  };
 
   if (!authModalOpen) return null;
 
@@ -229,18 +241,63 @@ export default function AdminAuthModal() {
 
               {/* Date of Birth */}
               <div className="admin-auth-field">
-                <label className="admin-auth-label">
-                  Date of Birth <span className="req">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="dob"
-                  value={formData.dob}
-                  onChange={handleChange}
-                  className={`admin-auth-input ${fieldErrors.dob ? 'has-error' : ''}`}
-                  autoComplete="off"
-                  required
-                />
+                <div className="admin-auth-label-row">
+                  <label className="admin-auth-label">
+                    Date of Birth <span className="req">*</span>
+                  </label>
+                  <button
+                    type="button"
+                    className="admin-auth-calendar-link"
+                    onClick={handleOpenDatePicker}
+                    title="Select from Calendar"
+                  >
+                    <FaCalendarAlt />
+                    <span>Select from Calendar</span>
+                  </button>
+                </div>
+                <div className="admin-auth-dob-wrapper">
+                  <input
+                    type="text"
+                    name="dob"
+                    value={formData.dob}
+                    onChange={handleChange}
+                    placeholder="YYYY-MM-DD"
+                    className={`admin-auth-input ${fieldErrors.dob ? 'has-error' : ''}`}
+                    autoComplete="off"
+                    required
+                  />
+                  <div className="admin-auth-calendar-picker-container">
+                    <button
+                      type="button"
+                      className="admin-auth-dob-btn"
+                      onClick={handleOpenDatePicker}
+                      tabIndex={-1}
+                      title="Open Calendar"
+                      aria-label="Open Calendar"
+                    >
+                      <FaCalendarAlt />
+                    </button>
+                    <input
+                      type="date"
+                      ref={datePickerRef}
+                      value={/^\d{4}-\d{2}-\d{2}$/.test(formData.dob) ? formData.dob : ''}
+                      onChange={(e) => {
+                        if (e.target.value) {
+                          setFormData((prev) => ({ ...prev, dob: e.target.value }));
+                          if (fieldErrors.dob) {
+                            setFieldErrors((prev) => ({ ...prev, dob: '' }));
+                          }
+                          if (generalError) {
+                            setGeneralError('');
+                          }
+                        }
+                      }}
+                      className="admin-auth-native-date-trigger"
+                      tabIndex={-1}
+                      aria-label="Choose date from calendar"
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Female Cat Name */}
